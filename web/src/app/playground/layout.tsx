@@ -3,25 +3,26 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Playground",
   description:
-    "Try VisionPipe3D hand tracking demo. Control 3D text with your hand movements in real-time using MediaPipe and Three.js.",
+    "Look up definitions for any keyword using AI. Get instant, accurate definitions powered by advanced language models.",
   keywords: [
-    "demo",
+    "definition",
     "playground",
-    "hand tracking demo",
-    "try hand tracking",
-    "interactive demo",
+    "AI definition",
+    "lookup",
+    "dictionary",
+    "what is",
   ],
   openGraph: {
-    title: "Playground | VisionPipe3D",
+    title: "Playground | what-is",
     description:
-      "Try VisionPipe3D hand tracking demo. Control 3D text with your hand movements in real-time.",
-    url: "https://visionpipe3d.quochuy.dev/playground",
+      "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
+    url: "https://example.com/playground",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Playground | VisionPipe3D",
+    title: "Playground | what-is",
     description:
-      "Try VisionPipe3D hand tracking demo. Control 3D text with your hand movements in real-time.",
+      "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
   },
 };
 

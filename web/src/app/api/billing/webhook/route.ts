@@ -1,74 +1,91 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db, users, creditTransactions } from "@/db";
-import { stripe } from "@/lib/stripe";
+import { verifyWebhookSignature } from "@/lib/paypal";
 import { config } from "@/lib/config";
 import { eq, sql } from "drizzle-orm";
-import Stripe from "stripe";
 
-// POST /api/billing/webhook - Handle Stripe webhooks
+// POST /api/billing/webhook - Handle PayPal webhooks
 export async function POST(request: NextRequest) {
-  console.log("[Webhook] Received Stripe webhook");
+  console.log("[Webhook] Received PayPal webhook");
+
   const body = await request.text();
-  const signature = request.headers.get("stripe-signature");
 
-  if (!signature || !config.stripe.webhookSecret) {
-    console.log("[Webhook] Missing signature or webhook secret");
-    return NextResponse.json(
-      { error: "Missing signature or webhook secret" },
-      { status: 400 }
-    );
+  // Get PayPal signature headers
+  const headers = {
+    "paypal-auth-algo": request.headers.get("paypal-auth-algo") || "",
+    "paypal-cert-url": request.headers.get("paypal-cert-url") || "",
+    "paypal-transmission-id":
+      request.headers.get("paypal-transmission-id") || "",
+    "paypal-transmission-sig":
+      request.headers.get("paypal-transmission-sig") || "",
+    "paypal-transmission-time":
+      request.headers.get("paypal-transmission-time") || "",
+  };
+
+  // Verify webhook signature (skip in development if no webhook ID)
+  if (config.paypal.webhookId) {
+    try {
+      const isValid = await verifyWebhookSignature(
+        config.paypal.webhookId,
+        headers,
+        body
+      );
+      if (!isValid) {
+        console.log("[Webhook] Signature verification failed");
+        return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
+      }
+      console.log("[Webhook] Signature verified");
+    } catch (err) {
+      console.error("[Webhook] Signature verification error:", err);
+      return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
+    }
   }
 
-  let event: Stripe.Event;
+  const event = JSON.parse(body);
+  console.log("[Webhook] Event type:", event.event_type);
 
-  try {
-    event = stripe.webhooks.constructEvent(
-      body,
-      signature,
-      config.stripe.webhookSecret
-    );
-    console.log("[Webhook] Event verified:", event.type);
-  } catch (err) {
-    console.error("[Webhook] Signature verification failed:", err);
-    return NextResponse.json(
-      { error: "Invalid signature" },
-      { status: 400 }
-    );
-  }
+  // Handle payment capture completed
+  if (event.event_type === "PAYMENT.CAPTURE.COMPLETED") {
+    console.log("[Webhook] Processing PAYMENT.CAPTURE.COMPLETED");
 
-  // Handle the event
-  if (event.type === "checkout.session.completed") {
-    console.log("[Webhook] Processing checkout.session.completed");
-    const session = event.data.object as Stripe.Checkout.Session;
-    const { userId, credits, packageId } = session.metadata ?? {};
-    console.log("[Webhook] Session metadata:", { userId, credits, packageId });
+    const capture = event.resource;
+    const customId = capture.custom_id;
 
-    if (!userId || !credits) {
-      console.error("[Webhook] Missing metadata in checkout session:", session.id);
+    if (!customId) {
+      console.error("[Webhook] Missing custom_id in capture");
       return NextResponse.json({ received: true });
     }
 
-    const creditsAmount = parseInt(credits, 10);
+    let customData: { userId: string; packageId: string; credits: number };
+    try {
+      customData = JSON.parse(customId);
+    } catch {
+      console.error("[Webhook] Invalid custom_id format:", customId);
+      return NextResponse.json({ received: true });
+    }
+
+    const { userId, packageId, credits } = customData;
+    console.log("[Webhook] Custom data:", { userId, packageId, credits });
 
     try {
       // Add credits to user
       await db
         .update(users)
         .set({
-          credits: sql`${users.credits} + ${creditsAmount}`,
+          credits: sql`${users.credits} + ${credits}`,
         })
         .where(eq(users.id, userId));
 
       // Record transaction
       await db.insert(creditTransactions).values({
         userId,
-        amount: creditsAmount,
+        amount: credits,
         type: "purchase",
-        stripePaymentId: session.payment_intent as string,
-        description: `Purchased ${creditsAmount.toLocaleString()} credits (${packageId})`,
+        paymentId: capture.id,
+        description: `Purchased ${credits.toLocaleString()} credits (${packageId})`,
       });
 
-      console.log("[Webhook] Added", creditsAmount, "credits to user", userId);
+      console.log("[Webhook] Added", credits, "credits to user", userId);
     } catch (error) {
       console.error("[Webhook] Error processing payment:", error);
       return NextResponse.json(
@@ -77,7 +94,7 @@ export async function POST(request: NextRequest) {
       );
     }
   } else {
-    console.log("[Webhook] Unhandled event type:", event.type);
+    console.log("[Webhook] Unhandled event type:", event.event_type);
   }
 
   return NextResponse.json({ received: true });

@@ -8,7 +8,7 @@ const creditPackages = [
     credits: 1,
     price: "$1",
     perCredit: "$1.00",
-    description: "Perfect for trying out the API and small projects.",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
     highlighted: false,
   },
   {
@@ -16,7 +16,7 @@ const creditPackages = [
     credits: 6,
     price: "$5",
     perCredit: "$0.83",
-    description: "Best value for growing applications.",
+    description: "Sed do eiusmod tempor incididunt ut labore.",
     highlighted: true,
   },
   {
@@ -24,7 +24,7 @@ const creditPackages = [
     credits: 30,
     price: "$20",
     perCredit: "$0.67",
-    description: "For high-volume production workloads.",
+    description: "Ut enim ad minim veniam, quis nostrud exercitation.",
     highlighted: false,
   },
 ];
@@ -40,7 +40,8 @@ export default function PricingPage() {
               Simple, transparent pricing
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Pay only for what you use. No subscriptions, no monthly fees.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. No
+              subscriptions, no monthly fees.
             </p>
           </div>
 
@@ -72,7 +73,7 @@ export default function PricingPage() {
                 </div>
 
                 <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  <li>1 credit = 1 API call</li>
+                  <li>1 credit = 1 definition lookup</li>
                   <li>Credits never expire</li>
                   <li>No monthly fees</li>
                 </ul>
@@ -95,7 +96,8 @@ export default function PricingPage() {
           <div className="mt-16 rounded-2xl border border-border p-8 text-center">
             <h2 className="text-2xl font-bold">Enterprise</h2>
             <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
-              Need volume discounts, dedicated infrastructure, or custom SLAs?
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Need
+              volume discounts or custom SLAs?
             </p>
             <Link
               href="/about-us"
@@ -108,8 +110,11 @@ export default function PricingPage() {
           {/* Free Tier Info */}
           <div className="mt-8 text-center text-sm text-muted-foreground">
             <p>
-              New accounts receive <strong>3 free credits</strong> to get started.
-              The <Link href="/playground" className="underline">Playground</Link> is always free.
+              Lorem ipsum dolor sit amet. The{" "}
+              <Link href="/playground" className="underline">
+                Playground
+              </Link>{" "}
+              requires credits to use.
             </p>
           </div>
         </section>

@@ -78,7 +78,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/quochuydev/visionpipe3d"
+                  href="https://github.com/example/what-is"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -114,7 +114,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-border pt-6">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} VisionPipe3D. MIT License.
+            &copy; {new Date().getFullYear()} what-is. MIT License.
           </p>
         </div>
       </div>

@@ -4,11 +4,11 @@ import { ThreeDMarquee } from "@/components/ThreeDMarquee";
 
 // Placeholder images for the carousel (970x700 aspect ratio)
 const carouselImages = [
-  "https://placehold.co/970x700/1a1a2e/ffffff?text=Hand+Tracking",
-  "https://placehold.co/970x700/16213e/ffffff?text=Gesture+Recognition",
-  "https://placehold.co/970x700/0f3460/ffffff?text=Multi-Hand+Tracking",
-  "https://placehold.co/970x700/533483/ffffff?text=3D+Manipulation",
-  "https://placehold.co/970x700/e94560/ffffff?text=Interactive+UI",
+  "https://placehold.co/970x700/1a1a2e/ffffff?text=AI+Definitions",
+  "https://placehold.co/970x700/16213e/ffffff?text=Instant+Lookup",
+  "https://placehold.co/970x700/0f3460/ffffff?text=Any+Topic",
+  "https://placehold.co/970x700/533483/ffffff?text=Accurate+Results",
+  "https://placehold.co/970x700/3b82f6/ffffff?text=Developer+API",
 ];
 
 export default function Home() {
@@ -20,11 +20,11 @@ export default function Home() {
         {/* Hero Section */}
         <section className="mx-auto max-w-[1080px] px-4 py-8 text-center sm:py-12">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-            Control 3D with your hands
+            Definitions, instantly
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Real-time hand tracking meets Three.js. Build gesture-controlled 3D
-            experiences that respond to natural hand movements.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -34,7 +34,7 @@ export default function Home() {
               Try Demo
             </a>
             <a
-              href="https://github.com/quochuydev/visionpipe3d"
+              href="https://github.com/example/what-is"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-md border border-border px-8 text-sm font-medium transition-colors hover:bg-accent"
@@ -54,26 +54,26 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-6 border-y border-border py-10 sm:py-12 lg:grid-cols-4">
             <div className="text-center">
               <div className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                21
+                1M+
               </div>
               <div className="mt-1 text-sm text-muted-foreground">
-                Hand Landmarks
+                Definitions Served
               </div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                60fps
+                &lt;1s
               </div>
               <div className="mt-1 text-sm text-muted-foreground">
-                Real-time Tracking
+                Response Time
               </div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                3D
+                99.9%
               </div>
               <div className="mt-1 text-sm text-muted-foreground">
-                Spatial Control
+                Uptime
               </div>
             </div>
             <div className="text-center">
@@ -93,33 +93,21 @@ export default function Home() {
             Built for developers
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Everything you need to add gesture control to your 3D applications.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad
+            minim veniam, quis nostrud exercitation.
           </p>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border border-border p-6 transition-colors hover:bg-accent">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground text-xl text-background">
                 <span role="img" aria-hidden>
-                  &#9995;
+                  &#129504;
                 </span>
               </div>
-              <h3 className="text-lg font-semibold">Hand Tracking</h3>
+              <h3 className="text-lg font-semibold">AI-Powered</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Precise 21-point hand landmark detection powered by MediaPipe.
-                Track fingers, palm, and wrist in real-time.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-border p-6 transition-colors hover:bg-accent">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground text-xl text-background">
-                <span role="img" aria-hidden>
-                  &#127922;
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold">3D Integration</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Seamless Three.js integration. Map hand movements to 3D object
-                transformations with minimal code.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt.
               </p>
             </div>
 
@@ -129,23 +117,10 @@ export default function Home() {
                   &#9889;
                 </span>
               </div>
-              <h3 className="text-lg font-semibold">Zero Config</h3>
+              <h3 className="text-lg font-semibold">Lightning Fast</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Works in any modern browser. No installation required. Just open
-                and allow camera access.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-border p-6 transition-colors hover:bg-accent">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground text-xl text-background">
-                <span role="img" aria-hidden>
-                  &#128260;
-                </span>
-              </div>
-              <h3 className="text-lg font-semibold">Gesture Recognition</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Detect gestures like pinch, grab, point, and wave. Build
-                intuitive touchless interfaces.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim
+                ad minim veniam.
               </p>
             </div>
 
@@ -155,10 +130,36 @@ export default function Home() {
                   &#128736;
                 </span>
               </div>
-              <h3 className="text-lg font-semibold">Developer Friendly</h3>
+              <h3 className="text-lg font-semibold">Developer API</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Clean API, TypeScript support, and comprehensive documentation.
-                Get started in minutes.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
+                nostrud exercitation ullamco.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border p-6 transition-colors hover:bg-accent">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground text-xl text-background">
+                <span role="img" aria-hidden>
+                  &#127757;
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold">Any Topic</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                aute irure dolor in reprehenderit.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border p-6 transition-colors hover:bg-accent">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground text-xl text-background">
+                <span role="img" aria-hidden>
+                  &#128274;
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold">Secure</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Excepteur sint occaecat cupidatat.
               </p>
             </div>
 
@@ -168,10 +169,10 @@ export default function Home() {
                   &#128640;
                 </span>
               </div>
-              <h3 className="text-lg font-semibold">Production Ready</h3>
+              <h3 className="text-lg font-semibold">Scalable</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Optimized for performance. Deploy anywhere with HTTPS for secure
-                camera access.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non
+                proident, sunt in culpa qui.
               </p>
             </div>
           </div>
@@ -181,18 +182,18 @@ export default function Home() {
         <section className="mx-auto max-w-[1080px] px-4">
           <div className="rounded-xl border border-border bg-accent py-12 text-center sm:py-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Ready to build?
+              Ready to get started?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Start controlling 3D objects with your hands in minutes. No signup
-              required.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Start
+              looking up definitions in seconds.
             </p>
             <div className="mt-8">
               <a
                 href="/playground"
                 className="inline-flex h-12 items-center justify-center rounded-md bg-foreground px-8 text-sm font-medium text-background transition-opacity hover:opacity-90"
               >
-                Launch Demo
+                Try Playground
               </a>
             </div>
           </div>

@@ -27,19 +27,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-xl font-semibold">
-                2. Camera and Video Data
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                Our hand tracking technology processes video from your
-                device&apos;s camera. This processing happens locally in your
-                browser. We do not store, transmit, or access your camera feed
-                or video data.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-semibold">
-                3. How We Use Information
+                2. How We Use Information
               </h2>
               <p className="mt-3 text-muted-foreground">
                 We use the information we collect to provide, maintain, and
@@ -49,7 +37,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold">4. Information Sharing</h2>
+              <h2 className="text-xl font-semibold">3. Information Sharing</h2>
               <p className="mt-3 text-muted-foreground">
                 We do not sell, trade, or otherwise transfer your personal
                 information to third parties. We may share information with
@@ -58,7 +46,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold">5. Data Security</h2>
+              <h2 className="text-xl font-semibold">4. Data Security</h2>
               <p className="mt-3 text-muted-foreground">
                 We implement appropriate technical and organizational measures
                 to protect your personal information against unauthorized
@@ -67,7 +55,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold">6. Cookies</h2>
+              <h2 className="text-xl font-semibold">5. Cookies</h2>
               <p className="mt-3 text-muted-foreground">
                 We use cookies and similar tracking technologies to track
                 activity on our website and store certain information. You can
@@ -77,7 +65,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold">7. Your Rights</h2>
+              <h2 className="text-xl font-semibold">6. Your Rights</h2>
               <p className="mt-3 text-muted-foreground">
                 You have the right to access, correct, or delete your personal
                 information. You may also request a copy of your data or ask us
@@ -86,7 +74,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold">8. Contact Us</h2>
+              <h2 className="text-xl font-semibold">7. Contact Us</h2>
               <p className="mt-3 text-muted-foreground">
                 If you have questions about this Privacy Policy, please contact
                 us at quochuy.dev@gmail.com.

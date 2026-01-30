@@ -11,27 +11,30 @@ export default function StationPage() {
             Station
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Your central hub for managing VisionPipe3D deployments and
-            configurations.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border border-border p-6">
-              <h3 className="font-semibold">Deployment Status</h3>
+              <h3 className="font-semibold">Lorem Ipsum</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Monitor the health and status of your VisionPipe3D instances.
+                Dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                tempor incididunt.
               </p>
             </div>
             <div className="rounded-xl border border-border p-6">
-              <h3 className="font-semibold">Configuration</h3>
+              <h3 className="font-semibold">Consectetur</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Manage tracking parameters and gesture recognition settings.
+                Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore.
               </p>
             </div>
             <div className="rounded-xl border border-border p-6">
-              <h3 className="font-semibold">Analytics</h3>
+              <h3 className="font-semibold">Adipiscing</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                View detailed analytics and performance metrics.
+                Elit sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua.
               </p>
             </div>
           </div>

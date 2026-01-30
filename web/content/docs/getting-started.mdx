@@ -1,28 +1,28 @@
 ---
 title: Getting Started
-description: Get up and running with VisionPipe in minutes.
+description: Get up and running with what-is in minutes.
 ---
 
 # Getting Started
 
-Get up and running with VisionPipe in minutes.
+Get up and running with what-is in minutes.
 
 ## Try the Playground
 
-The fastest way to experience VisionPipe is through our [Playground](/playground):
+The fastest way to experience what-is is through our [Playground](/playground):
 
-1. Go to [visionpipe.com/playground](/playground)
-2. Select an effect from the dropdown
-3. Allow camera access when prompted
-4. See real-time hand tracking in action
+1. Go to [example.com/playground](/playground)
+2. Enter a keyword to look up
+3. Get an instant AI-powered definition
+4. View your recent lookups in the history
 
 ## Using the Cloud API
 
-For server-side processing, use our Cloud API:
+For programmatic access, use our Cloud API:
 
 ### 1. Get an API Key
 
-1. Sign in at [visionpipe.com/login](/login)
+1. Sign in at [example.com/login](/login)
 2. Go to [Cloud Console → API Keys](/c/cloud/api-keys)
 3. Click "Add Key" and give it a name
 4. Copy your API key (you won't be able to see it again)
@@ -30,9 +30,10 @@ For server-side processing, use our Cloud API:
 ### 2. Make Your First Request
 
 ```bash
-curl -X POST https://visionpipe3d.quochuy.dev/api/v1/sessions \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  -H "Content-Type: application/json"
+curl -X POST https://example.com/api/playground/query \
+  -H "Authorization: Bearer wi_live_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"keyword": "photosynthesis"}'
 ```
 
 ### 3. Check Your Usage

@@ -12,19 +12,20 @@ export default function AboutUsPage() {
           </h1>
           <div className="mt-8 space-y-6 text-muted-foreground">
             <p>
-              VisionPipe3D is building the future of human-computer interaction.
-              We believe that gesture control will transform how we interact
-              with digital content.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco.
             </p>
             <p>
-              Our team combines expertise in computer vision, machine learning,
-              and 3D graphics to create tools that make gesture-controlled
-              experiences accessible to every developer.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit.
             </p>
             <p>
-              Founded in 2026, we&apos;re on a mission to democratize hand
-              tracking technology and enable the next generation of touchless
-              interfaces.
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo.
             </p>
           </div>
 
@@ -32,20 +33,20 @@ export default function AboutUsPage() {
             <h2 className="mb-6 text-2xl font-bold">Business Opportunities</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                We&apos;re open to business cooperation and product development
-                partnerships. Whether you&apos;re looking to integrate hand tracking
-                into your existing products, develop custom solutions, or explore
-                acquisition opportunities, we&apos;d love to hear from you.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo
+                enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+                fugit, sed quia consequuntur magni dolores eos qui ratione
+                voluptatem sequi nesciunt.
               </p>
               <div className="rounded-lg border border-border bg-accent/50 p-6">
                 <h3 className="mb-3 font-semibold text-foreground">
                   What we offer:
                 </h3>
                 <ul className="list-inside list-disc space-y-2">
-                  <li>Technology licensing and white-label solutions</li>
-                  <li>Custom product development and integration</li>
-                  <li>Business partnerships and joint ventures</li>
-                  <li>Full business acquisition opportunities</li>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Sed do eiusmod tempor</li>
+                  <li>Ut labore et dolore magna</li>
                 </ul>
               </div>
             </div>
@@ -55,7 +56,7 @@ export default function AboutUsPage() {
             <h2 className="mb-6 text-2xl font-bold">Contact</h2>
             <div className="space-y-2 text-muted-foreground">
               <p>Email: quochuy.dev@gmail.com</p>
-              <p>GitHub: github.com/quochuydev/visionpipe3d</p>
+              <p>GitHub: github.com/example/what-is</p>
             </div>
           </div>
         </section>

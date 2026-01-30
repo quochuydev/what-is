@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://visionpipe3d.quochuy.dev";
+  const baseUrl = "https://example.com";
 
   const routes = [
     { path: "", changeFrequency: "daily" as const, priority: 1 },

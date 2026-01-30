@@ -12,7 +12,7 @@ domain.com/docs/[...slug] - dynamic doc pages
 domain.com/blog - left: Categories; right: Blogs grid. URL support params: blog?categories=showcase,release,announcement
 domain.com/blog/[slug]
 domain.com/pricing - Standard Plan/Enterprise Plan
-domain.com/playground - Input text, Select Effect (Options), Then open webcam
+domain.com/playground - Input keyword, get AI-powered definition
 domain.com/c/*  - must authenticated
 domain.com/c/cloud/api-keys - API Keys - Table/Add/Delete
 domain.com/c/cloud/usage - Cloud Usage Dashboard - Table
@@ -51,4 +51,4 @@ Cloud API
 
 ## Domain
 
-`https://visionpipe3d.quochuy.dev`
+`https://example.com`

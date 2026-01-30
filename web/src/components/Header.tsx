@@ -6,7 +6,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-[1080px] items-center justify-between px-4">
         <Link href="/" className="text-xl font-bold tracking-tight">
-          VisionPipe3D
+          what-is
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

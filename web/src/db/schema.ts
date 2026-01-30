@@ -115,13 +115,13 @@ export const creditTransactions = pgTable(
       .references(() => users.id, { onDelete: "cascade" }),
     amount: integer("amount").notNull(), // Positive = add, negative = deduct
     type: transactionTypeEnum("type").notNull(),
-    stripePaymentId: varchar("stripe_payment_id", { length: 255 }),
+    paymentId: varchar("payment_id", { length: 255 }),
     description: text("description"),
     createdAt: timestamp("created_at").notNull().defaultNow(),
   },
   (table) => [
     index("credit_tx_user_id_idx").on(table.userId),
-    index("credit_tx_stripe_payment_id_idx").on(table.stripePaymentId),
+    index("credit_tx_payment_id_idx").on(table.paymentId),
   ]
 );
 

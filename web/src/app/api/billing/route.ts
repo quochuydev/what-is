@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { db, users, creditTransactions } from "@/db";
 import { requireUser } from "@/lib/auth";
-import { CREDIT_PACKAGES } from "@/lib/stripe";
+import { CREDIT_PACKAGES } from "@/lib/paypal";
 import { eq, desc } from "drizzle-orm";
 
 // GET /api/billing - Get billing information

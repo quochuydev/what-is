@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "VisionPipe3D - Hand Tracking 3D Control";
+export const alt = "what-is - AI-Powered Definition Lookup";
 export const size = {
   width: 1200,
   height: 630,
@@ -41,7 +41,7 @@ export default async function Image() {
               marginBottom: 16,
             }}
           >
-            VisionPipe3D
+            what-is
           </h1>
           <p
             style={{
@@ -51,14 +51,14 @@ export default async function Image() {
               marginBottom: 40,
             }}
           >
-            Hand Tracking 3D Control
+            AI-Powered Definition Lookup
           </p>
           <div
             style={{
               width: 400,
               height: 4,
               borderRadius: 2,
-              background: "linear-gradient(90deg, #ff0066 0%, #00ffff 100%)",
+              background: "linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%)",
             }}
           />
         </div>

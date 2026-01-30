@@ -1,38 +1,38 @@
 export async function GET() {
-  const content = `# VisionPipe3D
+  const content = `# what-is
 
-> Real-time hand tracking meets Three.js. Build gesture-controlled 3D experiences that respond to natural hand movements.
+> AI-powered definition lookup service. Get instant, accurate definitions for any keyword.
 
 ## Overview
 
-VisionPipe3D is a hand tracking and gesture control platform that enables developers to build interactive 3D experiences controlled by natural hand movements. The platform combines MediaPipe's hand tracking technology with Three.js for real-time 3D visualization.
+what-is is an AI-powered definition lookup service that provides instant, accurate definitions for any keyword using advanced language models.
 
 ## Website
 
-https://visionpipe3d.quochuy.dev
+https://example.com
 
 ## Features
 
-- **Real-time Hand Tracking**: Track 21 hand landmarks at 30fps using MediaPipe
-- **3D Integration**: Seamless integration with Three.js for gesture-controlled 3D experiences
-- **Cloud API**: Access hand tracking APIs from anywhere without managing infrastructure
-- **Browser-based**: Runs locally in the browser using WebGL acceleration
+- **AI-Powered Definitions**: Get accurate definitions using advanced language models
+- **Instant Results**: Definitions generated in seconds
+- **Cloud API**: Integrate definition lookups into your applications
+- **Credit-based Billing**: Pay only for what you use
 
 ## Pages
 
 ### Home (/)
-Landing page showcasing VisionPipe3D's hand tracking capabilities with interactive demos.
+Landing page showcasing what-is capabilities.
 
 ### Documentation (/docs)
-Comprehensive documentation for integrating VisionPipe3D into your applications.
+Comprehensive documentation for integrating what-is into your applications.
 
 - Getting Started Guide
-- Sample Projects (Branch Opening, Video Introduction)
+- Sample Projects
 - FAQ
 - Cloud API documentation (API Keys, Pricing)
 
 ### Blog (/blog)
-Latest news, tutorials, and updates about VisionPipe3D.
+Latest news, tutorials, and updates about what-is.
 
 Categories:
 - Showcase: Demo projects and implementations
@@ -40,50 +40,33 @@ Categories:
 - Announcement: Company and product news
 
 ### Pricing (/pricing)
-Two pricing tiers available:
+Credit-based pricing:
 
-**Standard Plan - $29/month**
-- 10,000 API calls/month
-- Basic hand tracking
-- Community support
-- Standard latency
-- Email support
-
-**Enterprise Plan - Custom pricing**
-- Unlimited API calls
-- Advanced gesture recognition
-- Priority support
-- Low latency endpoints
-- Dedicated account manager
-- Custom integrations
-- SLA guarantee
+- Starter: $1 for 1 credit
+- Growth: $5 for 6 credits
+- Scale: $20 for 30 credits
 
 ### Playground (/playground)
-Interactive demo where users can try hand tracking. Control 3D text with hand movements in real-time. Requires sign-in and uses credits (1 credit per session).
+Interactive demo where users can try definition lookups. Enter a keyword and get an instant AI-powered definition. Requires sign-in and uses credits (1 credit per lookup).
 
 ### Cloud (/cloud)
-Landing page for VisionPipe3D Cloud services - access powerful hand tracking APIs from anywhere.
+Landing page for what-is Cloud services.
 
 ### Station (/station)
-Central hub for managing VisionPipe3D deployments and configurations.
-
-Features:
-- Deployment Status monitoring
-- Configuration management
-- Analytics and performance metrics
+Central hub for managing what-is configurations.
 
 ### About Us (/about-us)
-Information about VisionPipe3D's mission to democratize hand tracking technology.
+Information about what-is.
 
 Contact:
-- Email: contact@visionpipe3d.com
-- GitHub: github.com/quochuydev/visionpipe3d
+- Email: quochuy.dev@gmail.com
+- GitHub: github.com/example/what-is
 
 ### Terms of Service (/terms)
-Legal terms and conditions for using VisionPipe3D services.
+Legal terms and conditions for using what-is services.
 
 ### Privacy Policy (/privacy)
-Privacy policy explaining data collection, camera/video data handling, and user rights. Camera processing happens locally in the browser - no video data is stored or transmitted.
+Privacy policy explaining data collection and user rights.
 
 ## Cloud Dashboard (/c/cloud/*)
 
@@ -95,21 +78,19 @@ Authenticated area for managing cloud services:
 ## Technical Stack
 
 - **Framework**: Next.js (App Router)
-- **Hand Tracking**: MediaPipe Hands
-- **3D Graphics**: Three.js
+- **AI**: OpenAI-compatible API
 - **Authentication**: Clerk
+- **Payments**: PayPal
 - **Documentation**: Fumadocs
 - **Styling**: Tailwind CSS
 
 ## Keywords
 
-hand tracking, MediaPipe, Three.js, 3D, gesture control, WebGL, computer vision, real-time tracking, gesture recognition, touchless interface
+definition, AI, lookup, dictionary, what is, meaning, explanation, knowledge
 
 ## Contact
 
-For inquiries: contact@visionpipe3d.com
-For legal: legal@visionpipe3d.com
-For privacy: privacy@visionpipe3d.com
+For inquiries: quochuy.dev@gmail.com
 `;
 
   return new Response(content, {

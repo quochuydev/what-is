@@ -1,6 +1,6 @@
 import { createHash, randomBytes } from "crypto";
 
-const API_KEY_PREFIX = "vp_live_";
+const API_KEY_PREFIX = "wi_live_";
 
 /**
  * Generate a new API key with prefix
@@ -15,7 +15,7 @@ export function generateApiKey(): {
   const randomPart = randomBytes(32).toString("hex");
   const fullKey = `${API_KEY_PREFIX}${randomPart}`;
 
-  // Create visible prefix (first 12 chars after vp_live_)
+  // Create visible prefix (first 12 chars after wi_live_)
   const keyPrefix = `${API_KEY_PREFIX}${randomPart.substring(0, 8)}...`;
 
   // Hash the full key for storage

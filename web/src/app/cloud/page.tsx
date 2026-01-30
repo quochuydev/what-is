@@ -9,11 +9,11 @@ export default function CloudLandingPage() {
       <main className="flex-1">
         <section className="mx-auto max-w-[1080px] px-4 py-8 text-center sm:py-12">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            VisionPipe3D Cloud
+            what-is Cloud
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Access powerful hand tracking APIs from anywhere. Build
-            gesture-controlled applications without managing infrastructure.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
 
           <div className="mt-10">
@@ -34,10 +34,10 @@ export default function CloudLandingPage() {
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-foreground text-xl text-background">
                   &#9889;
                 </div>
-                <h3 className="font-semibold">Low Latency</h3>
+                <h3 className="font-semibold">Lightning Fast</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Edge-optimized endpoints for real-time hand tracking with
-                  minimal delay.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  enim ad minim veniam.
                 </p>
               </div>
               <div className="text-center">
@@ -46,8 +46,8 @@ export default function CloudLandingPage() {
                 </div>
                 <h3 className="font-semibold">Secure by Default</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Enterprise-grade security with API key authentication and rate
-                  limiting.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
+                  nostrud exercitation.
                 </p>
               </div>
               <div className="text-center">
@@ -56,7 +56,8 @@ export default function CloudLandingPage() {
                 </div>
                 <h3 className="font-semibold">Scale Effortlessly</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Auto-scaling infrastructure that grows with your application.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  aute irure dolor.
                 </p>
               </div>
             </div>

@@ -18,9 +18,9 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold">1. Acceptance of Terms</h2>
               <p className="mt-3 text-muted-foreground">
-                By accessing or using VisionPipe3D services, you agree to be
-                bound by these Terms of Service. If you do not agree to these
-                terms, please do not use our services.
+                By accessing or using what-is services, you agree to be bound by
+                these Terms of Service. If you do not agree to these terms,
+                please do not use our services.
               </p>
             </section>
 
@@ -29,9 +29,9 @@ export default function TermsPage() {
                 2. Description of Service
               </h2>
               <p className="mt-3 text-muted-foreground">
-                VisionPipe3D provides hand tracking and gesture recognition APIs
-                and tools for developers. Our services include cloud-based APIs,
-                SDKs, and documentation.
+                what-is provides AI-powered definition lookup APIs and tools for
+                developers. Our services include cloud-based APIs, SDKs, and
+                documentation.
               </p>
             </section>
 
@@ -47,8 +47,8 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold">4. Acceptable Use</h2>
               <p className="mt-3 text-muted-foreground">
-                You agree not to use VisionPipe3D services for any unlawful
-                purpose or in any way that could damage, disable, or impair our
+                You agree not to use what-is services for any unlawful purpose
+                or in any way that could damage, disable, or impair our
                 services.
               </p>
             </section>
@@ -58,10 +58,9 @@ export default function TermsPage() {
                 5. Intellectual Property
               </h2>
               <p className="mt-3 text-muted-foreground">
-                VisionPipe3D and its original content, features, and
-                functionality are owned by VisionPipe3D and are protected by
-                international copyright, trademark, and other intellectual
-                property laws.
+                what-is and its original content, features, and functionality
+                are owned by what-is and are protected by international
+                copyright, trademark, and other intellectual property laws.
               </p>
             </section>
 
@@ -70,7 +69,7 @@ export default function TermsPage() {
                 6. Limitation of Liability
               </h2>
               <p className="mt-3 text-muted-foreground">
-                VisionPipe3D shall not be liable for any indirect, incidental,
+                what-is shall not be liable for any indirect, incidental,
                 special, consequential, or punitive damages resulting from your
                 use or inability to use the service.
               </p>

@@ -13,10 +13,19 @@ export const config = {
     expirySeconds: parseInt(process.env.JWT_EXPIRY_SECONDS || "86400", 10),
   },
 
-  // Stripe
-  stripe: {
-    secretKey: process.env.STRIPE_SECRET_KEY!,
-    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET!,
+  // PayPal
+  paypal: {
+    clientId: process.env.PAYPAL_CLIENT_ID!,
+    clientSecret: process.env.PAYPAL_CLIENT_SECRET!,
+    mode: (process.env.PAYPAL_MODE || "sandbox") as "sandbox" | "live",
+    webhookId: process.env.PAYPAL_WEBHOOK_ID,
+  },
+
+  // LLM (OpenAI-compatible API)
+  llm: {
+    apiKey: process.env.LLM_API_KEY!,
+    baseUrl: process.env.LLM_BASE_URL || "https://api.deepseek.com/v1",
+    model: process.env.LLM_MODEL || "deepseek-chat",
   },
 
   // App
@@ -30,8 +39,9 @@ export function validateConfig() {
   const required = [
     ["DATABASE_URL", config.database.url],
     ["JWT_SECRET", config.jwt.secret],
-    ["STRIPE_SECRET_KEY", config.stripe.secretKey],
-    ["STRIPE_WEBHOOK_SECRET", config.stripe.webhookSecret],
+    ["PAYPAL_CLIENT_ID", config.paypal.clientId],
+    ["PAYPAL_CLIENT_SECRET", config.paypal.clientSecret],
+    ["LLM_API_KEY", config.llm.apiKey],
   ] as const;
 
   const missing = required.filter(([, value]) => !value).map(([name]) => name);

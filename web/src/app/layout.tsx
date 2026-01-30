@@ -17,36 +17,36 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "VisionPipe3D - Hand Tracking 3D Control",
-    template: "%s | VisionPipe3D",
+    default: "what-is - AI-Powered Definition Lookup",
+    template: "%s | what-is",
   },
   description:
-    "Real-time hand tracking meets Three.js. Build gesture-controlled 3D experiences that respond to natural hand movements.",
+    "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate definitions at your fingertips.",
   keywords: [
-    "hand tracking",
-    "MediaPipe",
-    "Three.js",
-    "3D",
-    "gesture control",
-    "WebGL",
-    "computer vision",
-    "real-time tracking",
+    "definition",
+    "AI",
+    "lookup",
+    "dictionary",
+    "what is",
+    "meaning",
+    "explanation",
+    "knowledge",
   ],
-  metadataBase: new URL("https://visionpipe3d.quochuy.dev"),
+  metadataBase: new URL("https://example.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://visionpipe3d.quochuy.dev",
-    title: "VisionPipe3D - Hand Tracking 3D Control",
+    url: "https://example.com",
+    title: "what-is - AI-Powered Definition Lookup",
     description:
-      "Real-time hand tracking meets Three.js. Build gesture-controlled 3D experiences that respond to natural hand movements.",
-    siteName: "VisionPipe3D",
+      "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate definitions at your fingertips.",
+    siteName: "what-is",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VisionPipe3D - Hand Tracking 3D Control",
+    title: "what-is - AI-Powered Definition Lookup",
     description:
-      "Real-time hand tracking meets Three.js. Build gesture-controlled 3D experiences that respond to natural hand movements.",
+      "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate definitions at your fingertips.",
   },
   robots: {
     index: true,
@@ -76,10 +76,10 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                name: "VisionPipe3D",
-                url: "https://visionpipe3d.quochuy.dev",
+                name: "what-is",
+                url: "https://example.com",
                 description:
-                  "Real-time hand tracking meets Three.js. Build gesture-controlled 3D experiences.",
+                  "AI-powered definition lookup service. Get instant, accurate definitions for any keyword.",
                 sameAs: [],
               }),
             }}
@@ -90,14 +90,14 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                name: "VisionPipe3D",
-                url: "https://visionpipe3d.quochuy.dev",
+                name: "what-is",
+                url: "https://example.com",
                 potentialAction: {
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
                     urlTemplate:
-                      "https://visionpipe3d.quochuy.dev/docs?q={search_term_string}",
+                      "https://example.com/docs?q={search_term_string}",
                   },
                   "query-input": "required name=search_term_string",
                 },
@@ -105,7 +105,7 @@ export default function RootLayout({
             }}
           />
           <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-EB77BKT734"
+            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
@@ -113,7 +113,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-EB77BKT734');
+              gtag('config', 'G-XXXXXXXXXX');
             `}
           </Script>
         </head>

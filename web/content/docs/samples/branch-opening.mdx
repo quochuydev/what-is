@@ -1,56 +1,40 @@
 ---
-title: Branch Opening
-description: Create an interactive branch opening visualization controlled by hand gestures.
+title: Sample Project 1
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 ---
 
-# Branch Opening
+# Sample Project 1
 
-Create an interactive branch opening visualization controlled by hand gestures.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 ## Overview
 
-This sample demonstrates how to use VisionPipe's hand tracking to create a branch opening animation that responds to the distance between your thumb and index finger.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ## Demo
 
-See the live demo at [visionpipe.com/playground](/playground) and select the "Branch Opening" effect.
+See the live demo at [example.com/playground](/playground).
 
 ## How It Works
 
-1. **Hand Detection** - VisionPipe detects hand landmarks in real-time
-2. **Pinch Detection** - Calculate distance between thumb tip (landmark 4) and index finger tip (landmark 8)
-3. **Animation Control** - Map the pinch distance to branch opening angle
+1. **Lorem Ipsum** - Dolor sit amet consectetur adipiscing elit
+2. **Sed Do** - Eiusmod tempor incididunt ut labore
+3. **Ut Enim** - Ad minim veniam quis nostrud
 
 ## Code Example
 
 ```javascript
-import { HandTracker } from '@visionpipe/sdk';
+import { WhatIs } from '@what-is/sdk';
 
-const tracker = new HandTracker();
-
-tracker.onResults((results) => {
-  if (results.landmarks.length > 0) {
-    const hand = results.landmarks[0];
-    const thumbTip = hand[4];
-    const indexTip = hand[8];
-
-    // Calculate pinch distance
-    const distance = Math.sqrt(
-      Math.pow(thumbTip.x - indexTip.x, 2) +
-      Math.pow(thumbTip.y - indexTip.y, 2)
-    );
-
-    // Map to branch angle (0-90 degrees)
-    const angle = Math.min(distance * 500, 90);
-
-    updateBranchAnimation(angle);
-  }
+const client = new WhatIs({
+  apiKey: process.env.WHAT_IS_API_KEY
 });
 
-tracker.start();
+const result = await client.define('photosynthesis');
+console.log(result.definition);
 ```
 
 ## Resources
 
-- [Source Code](https://github.com/visionpipe/samples/tree/main/branch-opening)
+- [Source Code](https://github.com/example/what-is-samples)
 - [Video Tutorial](/docs/samples/video-introduction)
