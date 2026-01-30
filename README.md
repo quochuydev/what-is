@@ -1,13 +1,65 @@
 # what-is
 
-AI-powered definition lookup service built with Next.js.
+**AI-powered definition lookup service.** Get instant, accurate definitions for any keyword.
+
+## What is what-is?
+
+what-is is a simple, fast definition lookup tool powered by AI. Enter any keyword and get a clear, concise explanation in seconds.
+
+Perfect for:
+- Students researching topics
+- Writers needing quick definitions
+- Developers building knowledge apps
+- Anyone curious about the world
 
 ## Features
 
-- **Playground** - Look up definitions for any keyword using AI
-- **Cloud API** - API keys for integrating definition lookups into your apps
-- **Documentation** - Guides and sample projects
-- **Blog** - Updates, showcases, and announcements
+- **Instant Definitions** - Get accurate explanations in 2-3 sentences
+- **Any Topic** - Science, technology, history, culture, and more
+- **AI-Powered** - Uses advanced language models for quality results
+- **Developer API** - Integrate definitions into your own applications
+- **Simple Pricing** - Pay only for what you use, no subscriptions
+
+## How It Works
+
+1. **Sign up** - Create a free account with Google
+2. **Get credits** - Purchase credits via PayPal
+3. **Look up** - Enter a keyword in the Playground
+4. **Get definition** - Receive an AI-generated definition instantly
+
+Each lookup uses 1 credit.
+
+## Pricing
+
+No subscriptions. No monthly fees. Credits never expire.
+
+| Package | Credits | Price | Per Lookup |
+|---------|---------|-------|------------|
+| **Starter** | 1 | $1 | $1.00 |
+| **Growth** | 6 | $5 | $0.83 |
+| **Scale** | 30 | $20 | $0.67 |
+
+Need more? Contact us for enterprise pricing.
+
+## API Access
+
+Build definition lookups into your apps with our simple API:
+
+```bash
+curl -X POST https://example.com/api/playground/query \
+  -H "Authorization: Bearer wi_live_YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"keyword": "photosynthesis"}'
+```
+
+Response:
+```json
+{
+  "keyword": "photosynthesis",
+  "definition": "The process by which plants convert light energy into chemical energy, using carbon dioxide and water to produce glucose and oxygen.",
+  "credits": 5
+}
+```
 
 ## Tech Stack
 
@@ -17,112 +69,28 @@ AI-powered definition lookup service built with Next.js.
 - Clerk (authentication)
 - Drizzle ORM + PostgreSQL
 - PayPal (payments)
-- Fumadocs (documentation)
-- OpenAI-compatible API (definitions)
+- OpenAI-compatible API
 
-## Getting Started
+## Self-Hosting
 
-### Prerequisites
-
-- Node.js 18+
-- PostgreSQL database
-- Clerk account
-- PayPal account (for payments)
-- OpenAI-compatible API key (e.g., DeepSeek)
-
-### Installation
+Want to run your own instance?
 
 ```bash
-cd web
-
-# Install dependencies
+git clone https://github.com/quochuydev/what-is.git
+cd what-is/web
 npm install --legacy-peer-deps
-
-# Copy environment variables
 cp .env.example .env
-# Fill in your Clerk, PayPal, LLM, and database credentials
-
-# Run database migrations
+# Configure your environment variables
 npm run db:push
-
-# Start development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
-## Project Structure
-
-```
-web/
-├── src/
-│   ├── app/           # Next.js app router pages
-│   ├── components/    # React components
-│   ├── db/            # Database schema and connection
-│   └── lib/           # Utilities (auth, paypal, api-keys)
-├── content/
-│   └── docs/          # Documentation (MDX)
-└── public/            # Static assets
-```
-
-## Routes
-
-| Route | Description |
-|-------|-------------|
-| `/` | Landing page |
-| `/playground` | AI definition lookup (requires credits) |
-| `/docs` | Documentation |
-| `/blog` | Blog posts |
-| `/pricing` | Pricing plans |
-| `/cloud` | Cloud API landing |
-| `/c/cloud/api-keys` | Manage API keys |
-| `/c/cloud/billing` | Credits and billing |
-
-## Scripts
-
-```bash
-npm run dev        # Development server
-npm run build      # Production build
-npm run lint       # Run ESLint
-npm run db:push    # Push schema to database
-npm run db:studio  # Open Drizzle Studio
-```
-
-## Credits System
-
-Each definition lookup uses 1 credit. Purchase credits via PayPal:
-
-- Starter: $1 for 1 credit
-- Growth: $5 for 6 credits
-- Scale: $20 for 30 credits
-
-## Environment Variables
-
-```bash
-# Clerk
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-
-# Database
-DATABASE_URL=
-
-# JWT
-JWT_SECRET=
-
-# PayPal
-PAYPAL_CLIENT_ID=
-PAYPAL_CLIENT_SECRET=
-PAYPAL_MODE=sandbox
-
-# LLM (OpenAI-compatible)
-LLM_API_KEY=
-LLM_BASE_URL=https://api.deepseek.com/v1
-LLM_MODEL=deepseek-chat
-```
+See `.env.example` for required configuration.
 
 ## Contact
 
-Email: quochuy.dev@gmail.com
+- Email: quochuy.dev@gmail.com
+- GitHub: [github.com/quochuydev/what-is](https://github.com/quochuydev/what-is)
 
 ## License
 
