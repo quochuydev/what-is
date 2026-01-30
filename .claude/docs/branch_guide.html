@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branch Guide - VisionPipe3D</title>
+  <style>
+    :root {
+      --foreground: #0a0a0a;
+      --muted-foreground: #737373;
+      --background: #ffffff;
+      --accent: #f5f5f5;
+      --primary: #0a0a0a;
+      --primary-foreground: #ffffff;
+      --border: #e5e5e5;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --foreground: #fafafa;
+        --muted-foreground: #a3a3a3;
+        --background: #0a0a0a;
+        --accent: #171717;
+        --primary: #fafafa;
+        --primary-foreground: #0a0a0a;
+        --border: #262626;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--foreground);
+      background-color: var(--background);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Header */
+    header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--background);
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      text-decoration: none;
+      color: var(--foreground);
+    }
+
+    nav {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      nav {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+
+    nav a {
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      color: var(--muted-foreground);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s, background-color 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--foreground);
+      background-color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.15s, color 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    /* Stats Grid */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 1024px) {
+      .stats {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-top: 0.25rem;
+    }
+
+    /* Content Sections */
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section p {
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+      max-width: 48rem;
+    }
+
+    /* Branch Cards */
+    .branch-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .branch-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .branch-card {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      transition: background-color 0.15s;
+    }
+
+    .branch-card:hover {
+      background-color: var(--accent);
+    }
+
+    .branch-name {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    .branch-desc {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Code Block */
+    .code-block {
+      background-color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875rem;
+      color: var(--foreground);
+    }
+
+    /* Process Steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+      font-size: 0.875rem;
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+      max-width: 72rem;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-section h4 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a {
+      display: block;
+      color: var(--muted-foreground);
+      text-decoration: none;
+      font-size: 0.875rem;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    .footer-section a:hover {
+      color: var(--foreground);
+    }
+
+    .footer-bottom {
+      max-width: 72rem;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="/" class="logo">VisionPipe3D</a>
+      <nav>
+        <a href="/">Demo</a>
+        <a href="/branch_guide.html">Branch Guide</a>
+        <a href="https://github.com/quochuydev/visionpipe3d">GitHub</a>
+      </nav>
+      <a href="https://github.com/quochuydev/visionpipe3d" class="btn btn-primary">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Branch Guide</h1>
+      <p>We're building the future of gesture-controlled 3D interfaces. Here's how we work together.</p>
+    </section>
+
+    <section class="stats">
+      <div class="stat">
+        <div class="stat-value">main</div>
+        <div class="stat-label">Production Branch</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">develop</div>
+        <div class="stat-label">Integration Branch</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">feature/*</div>
+        <div class="stat-label">New Capabilities</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">fix/*</div>
+        <div class="stat-label">Bug Fixes</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Our Philosophy</h2>
+      <p>VisionPipe3D emerged from a simple idea: your hands should control your digital world. We move fast, ship often, and maintain quality through disciplined branching.</p>
+      <p><strong>One mission.</strong> Make gesture control accessible to every developer.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Branch Types</h2>
+      <div class="branch-grid">
+        <div class="branch-card">
+          <div class="branch-name">main</div>
+          <div class="branch-desc">Production-ready code. Every commit is deployable, tested, and documented. Direct pushes are not allowed.</div>
+        </div>
+        <div class="branch-card">
+          <div class="branch-name">develop</div>
+          <div class="branch-desc">Integration layer where new code meets existing functionality. Run the full test suite before merging to main.</div>
+        </div>
+        <div class="branch-card">
+          <div class="branch-name">feature/*</div>
+          <div class="branch-desc">Building something new? Create a feature branch. Name it clearly, work iteratively, keep commits focused.</div>
+        </div>
+        <div class="branch-card">
+          <div class="branch-name">fix/*</div>
+          <div class="branch-desc">Found a bug? Isolate the fix. Reference the issue, test thoroughly, submit for review.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Quick Commands</h2>
+      <div class="code-block">
+        <code># Start a new feature<br>
+git checkout -b feature/palm-rotation-tracking develop<br><br>
+# Start a bug fix<br>
+git checkout -b fix/camera-permission-handler develop<br><br>
+# Update your branch<br>
+git pull origin develop<br><br>
+# Push changes<br>
+git push -u origin your-branch</code>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Pull Request Process</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Create</h4>
+            <p>Branch from develop with a clear, descriptive name.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Build</h4>
+            <p>Implement your feature or fix with focused commits.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Test</h4>
+            <p>Verify locally with webcam enabled for hand tracking features.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Review</h4>
+            <p>Open a pull request. Reviews happen within 24 hours.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>Merge</h4>
+            <p>After approval, your code joins the project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Project</h4>
+        <a href="/">Demo</a>
+        <a href="/branch_guide.html">Branch Guide</a>
+        <a href="https://github.com/quochuydev/visionpipe3d">GitHub</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="https://mediapipe.dev">MediaPipe</a>
+        <a href="https://threejs.org">Three.js</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia">WebRTC API</a>
+      </div>
+      <div class="footer-section">
+        <h4>Community</h4>
+        <a href="https://github.com/quochuydev/visionpipe3d/issues">Issues</a>
+        <a href="https://github.com/quochuydev/visionpipe3d/pulls">Pull Requests</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 VisionPipe3D. MIT License.
+    </div>
+  </footer>
+</body>
+</html>

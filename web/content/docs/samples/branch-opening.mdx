@@ -1,0 +1,56 @@
+---
+title: Branch Opening
+description: Create an interactive branch opening visualization controlled by hand gestures.
+---
+
+# Branch Opening
+
+Create an interactive branch opening visualization controlled by hand gestures.
+
+## Overview
+
+This sample demonstrates how to use VisionPipe's hand tracking to create a branch opening animation that responds to the distance between your thumb and index finger.
+
+## Demo
+
+See the live demo at [visionpipe.com/playground](/playground) and select the "Branch Opening" effect.
+
+## How It Works
+
+1. **Hand Detection** - VisionPipe detects hand landmarks in real-time
+2. **Pinch Detection** - Calculate distance between thumb tip (landmark 4) and index finger tip (landmark 8)
+3. **Animation Control** - Map the pinch distance to branch opening angle
+
+## Code Example
+
+```javascript
+import { HandTracker } from '@visionpipe/sdk';
+
+const tracker = new HandTracker();
+
+tracker.onResults((results) => {
+  if (results.landmarks.length > 0) {
+    const hand = results.landmarks[0];
+    const thumbTip = hand[4];
+    const indexTip = hand[8];
+
+    // Calculate pinch distance
+    const distance = Math.sqrt(
+      Math.pow(thumbTip.x - indexTip.x, 2) +
+      Math.pow(thumbTip.y - indexTip.y, 2)
+    );
+
+    // Map to branch angle (0-90 degrees)
+    const angle = Math.min(distance * 500, 90);
+
+    updateBranchAnimation(angle);
+  }
+});
+
+tracker.start();
+```
+
+## Resources
+
+- [Source Code](https://github.com/visionpipe/samples/tree/main/branch-opening)
+- [Video Tutorial](/docs/samples/video-introduction)

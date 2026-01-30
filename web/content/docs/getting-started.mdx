@@ -1,0 +1,46 @@
+---
+title: Getting Started
+description: Get up and running with VisionPipe in minutes.
+---
+
+# Getting Started
+
+Get up and running with VisionPipe in minutes.
+
+## Try the Playground
+
+The fastest way to experience VisionPipe is through our [Playground](/playground):
+
+1. Go to [visionpipe.com/playground](/playground)
+2. Select an effect from the dropdown
+3. Allow camera access when prompted
+4. See real-time hand tracking in action
+
+## Using the Cloud API
+
+For server-side processing, use our Cloud API:
+
+### 1. Get an API Key
+
+1. Sign in at [visionpipe.com/login](/login)
+2. Go to [Cloud Console → API Keys](/c/cloud/api-keys)
+3. Click "Add Key" and give it a name
+4. Copy your API key (you won't be able to see it again)
+
+### 2. Make Your First Request
+
+```bash
+curl -X POST https://visionpipe3d.quochuy.dev/api/v1/sessions \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"
+```
+
+### 3. Check Your Usage
+
+Monitor your API usage at [Cloud Console → Usage](/c/cloud/usage).
+
+## Next Steps
+
+- [Sample Projects](/docs/samples/branch-opening) - See example implementations
+- [API Reference](/docs/cloud/api-keys) - Full API documentation
+- [Pricing](/docs/cloud/pricing) - View pricing and buy credits

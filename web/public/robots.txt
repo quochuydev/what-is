@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /c/
+Disallow: /login
+
+Sitemap: https://visionpipe3d.quochuy.dev/sitemap.xml
+
+# LLM Content
+LLMs-Full: https://visionpipe3d.quochuy.dev/llms-full.txt

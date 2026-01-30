@@ -1,0 +1,88 @@
+---
+title: FAQ
+description: Frequently asked questions about VisionPipe.
+---
+
+# FAQ
+
+Frequently asked questions about VisionPipe.
+
+## General
+
+### What is VisionPipe?
+
+VisionPipe is a real-time computer vision platform for hand tracking, gesture recognition, and 3D visualization. It works directly in the browser using MediaPipe technology.
+
+### What browsers are supported?
+
+VisionPipe works in all modern browsers that support WebGL and getUserMedia:
+- Chrome 80+
+- Firefox 75+
+- Safari 14+
+- Edge 80+
+
+### Do I need special hardware?
+
+No special hardware is required. Any device with a webcam will work. For best performance, we recommend a device with a dedicated GPU.
+
+## API & Billing
+
+### How do API credits work?
+
+Each API call consumes 1 credit. New accounts receive 100 free credits to get started. You can purchase additional credits in the [Billing](/c/cloud/billing) section.
+
+### What payment methods do you accept?
+
+We accept all major credit cards through Stripe, including Visa, Mastercard, and American Express.
+
+### Is there a free tier?
+
+Yes! New accounts receive 100 free credits. The [Playground](/playground) is always free to use without an account.
+
+### How do I get an API key?
+
+1. Sign in at [visionpipe.com/login](/login)
+2. Go to [API Keys](/c/cloud/api-keys)
+3. Click "Add Key" and copy your key
+
+API keys are hashed for security - you can only see the full key once when it's created.
+
+## Security
+
+### How is my data handled?
+
+- Images sent to the API are processed and immediately discarded
+- We do not store or use your images for training
+- API keys are hashed using SHA-256 before storage
+- All traffic is encrypted using TLS 1.3
+
+### Is VisionPipe GDPR compliant?
+
+Yes. We follow GDPR guidelines including:
+- Data minimization
+- Right to erasure
+- Audit logging
+- Encryption at rest
+
+## Technical
+
+### What is the API rate limit?
+
+Standard accounts: 100 requests/minute
+Enterprise accounts: Custom limits available
+
+### What image formats are supported?
+
+The API accepts JPEG, PNG, WebP, and GIF images up to 10MB.
+
+### Can I use VisionPipe offline?
+
+The browser SDK can work offline after initial load. The Cloud API requires an internet connection.
+
+## Support
+
+### How do I get help?
+
+- [GitHub Issues](https://github.com/visionpipe/visionpipe/issues) - Bug reports and feature requests
+- [Discord](https://discord.gg/visionpipe) - Community support
+- Email: support@visionpipe.com - Enterprise support
