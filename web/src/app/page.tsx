@@ -34,7 +34,7 @@ export default function Home() {
               Try Demo
             </a>
             <a
-              href="https://github.com/example/what-is"
+              href="https://github.com/quochuydev/what-is"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-md border border-border px-8 text-sm font-medium transition-colors hover:bg-accent"
@@ -72,9 +72,7 @@ export default function Home() {
               <div className="text-3xl font-extrabold tracking-tight sm:text-4xl">
                 99.9%
               </div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Uptime
-              </div>
+              <div className="mt-1 text-sm text-muted-foreground">Uptime</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-extrabold tracking-tight sm:text-4xl">

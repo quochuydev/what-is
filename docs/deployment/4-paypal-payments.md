@@ -6,11 +6,11 @@ what-is uses PayPal for credit purchases. Users buy credit packages via PayPal c
 
 ## Credit Packages
 
-| Package | Credits | Price |
-|---------|---------|-------|
-| Starter | 1 | $1.00 |
-| Growth | 6 | $5.00 |
-| Scale | 30 | $20.00 |
+| Package | Credits | Price  |
+| ------- | ------- | ------ |
+| Starter | 1       | $1.00  |
+| Growth  | 6       | $5.00  |
+| Scale   | 30      | $20.00 |
 
 ## Account Type
 
@@ -51,13 +51,14 @@ This is important for reliable payment processing. The webhook acts as a backup 
 
 1. In your app settings, scroll to **Webhooks**
 2. Click **Add Webhook**
-3. Set the webhook URL to: `https://your-domain.com/api/billing/webhook`
+3. Set the webhook URL to: `https://what-is-boilerplate.vercel.app/api/billing/webhook`
 4. Subscribe to this event:
    - `PAYMENT.CAPTURE.COMPLETED`
 5. Click **Save**
 6. Copy the **Webhook ID** from the webhook list
 
 > **Note:** You need your deployed URL to create the webhook. You can either:
+>
 > - Deploy first without the webhook ID, then come back and add it
 > - Use a placeholder and update the env var after deployment
 
