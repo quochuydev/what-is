@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { config } from "@/lib/config";
 
 export function Footer() {
   return (
@@ -78,7 +79,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/quochuydev/what-is"
+                  href={config.site.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -114,7 +115,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-border pt-6">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} what-is. MIT License.
+            &copy; {new Date().getFullYear()} {config.site.name}. MIT License.
           </p>
         </div>
       </div>

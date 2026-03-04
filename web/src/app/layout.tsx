@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { config } from "@/lib/config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,11 +18,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "what-is - AI-Powered Definition Lookup",
-    template: "%s | what-is",
+    default: `${config.site.name} - ${config.site.tagline}`,
+    template: `%s | ${config.site.name}`,
   },
-  description:
-    "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate definitions at your fingertips.",
+  description: `${config.site.description} definitions at your fingertips.`,
   keywords: [
     "definition",
     "AI",
@@ -32,21 +32,19 @@ export const metadata: Metadata = {
     "explanation",
     "knowledge",
   ],
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(config.site.url),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://example.com",
-    title: "what-is - AI-Powered Definition Lookup",
-    description:
-      "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate definitions at your fingertips.",
-    siteName: "what-is",
+    url: config.site.url,
+    title: `${config.site.name} - ${config.site.tagline}`,
+    description: `${config.site.description} definitions at your fingertips.`,
+    siteName: config.site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "what-is - AI-Powered Definition Lookup",
-    description:
-      "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate definitions at your fingertips.",
+    title: `${config.site.name} - ${config.site.tagline}`,
+    description: `${config.site.description} definitions at your fingertips.`,
   },
   robots: {
     index: true,
@@ -76,8 +74,8 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                name: "what-is",
-                url: "https://example.com",
+                name: config.site.name,
+                url: config.site.url,
                 description:
                   "AI-powered definition lookup service. Get instant, accurate definitions for any keyword.",
                 sameAs: [],
@@ -90,14 +88,13 @@ export default function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                name: "what-is",
-                url: "https://example.com",
+                name: config.site.name,
+                url: config.site.url,
                 potentialAction: {
                   "@type": "SearchAction",
                   target: {
                     "@type": "EntryPoint",
-                    urlTemplate:
-                      "https://example.com/docs?q={search_term_string}",
+                    urlTemplate: `${config.site.url}/docs?q={search_term_string}`,
                   },
                   "query-input": "required name=search_term_string",
                 },
@@ -105,7 +102,7 @@ export default function RootLayout({
             }}
           />
           <Script
-            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+            src={`https://www.googletagmanager.com/gtag/js?id=${config.site.analyticsId}`}
             strategy="afterInteractive"
           />
           <Script id="google-analytics" strategy="afterInteractive">
@@ -113,7 +110,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX');
+              gtag('config', '${config.site.analyticsId}');
             `}
           </Script>
         </head>

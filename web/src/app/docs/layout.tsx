@@ -2,29 +2,26 @@ import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { source } from "@/lib/source";
+import { config } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Documentation",
-  description:
-    "VisionPipe3D documentation. Learn how to integrate hand tracking and gesture control into your applications.",
+  description: `${config.site.name} documentation. Learn how to integrate AI-powered definition lookups into your applications.`,
   keywords: [
     "documentation",
     "docs",
     "API documentation",
-    "hand tracking docs",
     "integration guide",
   ],
   openGraph: {
-    title: "Documentation | VisionPipe3D",
-    description:
-      "VisionPipe3D documentation. Learn how to integrate hand tracking into your apps.",
-    url: "https://visionpipe3d.quochuy.dev/docs",
+    title: `Documentation | ${config.site.name}`,
+    description: `${config.site.name} documentation. Learn how to integrate AI-powered definitions into your apps.`,
+    url: `${config.site.url}/docs`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Documentation | VisionPipe3D",
-    description:
-      "VisionPipe3D documentation. Learn how to integrate hand tracking into your apps.",
+    title: `Documentation | ${config.site.name}`,
+    description: `${config.site.name} documentation. Learn how to integrate AI-powered definitions into your apps.`,
   },
 };
 
@@ -33,7 +30,7 @@ export default function RootDocsLayout({ children }: { children: ReactNode }) {
     <DocsLayout
       tree={source.pageTree}
       nav={{
-        title: "VisionPipe Docs",
+        title: `${config.site.name} Docs`,
         url: "/docs",
       }}
       sidebar={{

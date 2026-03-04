@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { config } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -13,14 +14,14 @@ export const metadata: Metadata = {
     "what is",
   ],
   openGraph: {
-    title: "Playground | what-is",
+    title: `Playground | ${config.site.name}`,
     description:
       "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
-    url: "https://example.com/playground",
+    url: `${config.site.url}/playground`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Playground | what-is",
+    title: `Playground | ${config.site.name}`,
     description:
       "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
   },

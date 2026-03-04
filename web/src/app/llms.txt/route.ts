@@ -1,15 +1,19 @@
+import { config } from "@/lib/config";
+
 export async function GET() {
-  const content = `# what-is
+  const { name, url, email } = config.site;
+
+  const content = `# ${name}
 
 > AI-powered definition lookup service. Get instant, accurate definitions for any keyword.
 
 ## Overview
 
-what-is is an AI-powered definition lookup service that provides instant, accurate definitions for any keyword using advanced language models.
+${name} is an AI-powered definition lookup service that provides instant, accurate definitions for any keyword using advanced language models.
 
 ## Website
 
-https://example.com
+${url}
 
 ## Features
 
@@ -21,10 +25,10 @@ https://example.com
 ## Pages
 
 ### Home (/)
-Landing page showcasing what-is capabilities.
+Landing page showcasing ${name} capabilities.
 
 ### Documentation (/docs)
-Comprehensive documentation for integrating what-is into your applications.
+Comprehensive documentation for integrating ${name} into your applications.
 
 - Getting Started Guide
 - Sample Projects
@@ -32,7 +36,7 @@ Comprehensive documentation for integrating what-is into your applications.
 - Cloud API documentation (API Keys, Pricing)
 
 ### Blog (/blog)
-Latest news, tutorials, and updates about what-is.
+Latest news, tutorials, and updates about ${name}.
 
 Categories:
 - Showcase: Demo projects and implementations
@@ -50,20 +54,20 @@ Credit-based pricing:
 Interactive demo where users can try definition lookups. Enter a keyword and get an instant AI-powered definition. Requires sign-in and uses credits (1 credit per lookup).
 
 ### Cloud (/cloud)
-Landing page for what-is Cloud services.
+Landing page for ${name} Cloud services.
 
 ### Station (/station)
-Central hub for managing what-is configurations.
+Central hub for managing ${name} configurations.
 
 ### About Us (/about-us)
-Information about what-is.
+Information about ${name}.
 
 Contact:
-- Email: quochuy.dev@gmail.com
-- GitHub: github.com/example/what-is
+- Email: ${email}
+- GitHub: ${config.site.github.replace("https://", "")}
 
 ### Terms of Service (/terms)
-Legal terms and conditions for using what-is services.
+Legal terms and conditions for using ${name} services.
 
 ### Privacy Policy (/privacy)
 Privacy policy explaining data collection and user rights.
@@ -90,7 +94,7 @@ definition, AI, lookup, dictionary, what is, meaning, explanation, knowledge
 
 ## Contact
 
-For inquiries: quochuy.dev@gmail.com
+For inquiries: ${email}
 `;
 
   return new Response(content, {

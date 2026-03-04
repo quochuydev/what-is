@@ -69,7 +69,7 @@ export async function createOrder(
         },
       ],
       application_context: {
-        brand_name: "what-is",
+        brand_name: config.site.name,
         landing_page: "NO_PREFERENCE",
         user_action: "PAY_NOW",
       },

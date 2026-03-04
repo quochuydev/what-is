@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ThreeDMarquee } from "@/components/ThreeDMarquee";
+import { config } from "@/lib/config";
 
 // Placeholder images for the carousel (970x700 aspect ratio)
 const carouselImages = [
@@ -34,7 +35,7 @@ export default function Home() {
               Try Demo
             </a>
             <a
-              href="https://github.com/quochuydev/what-is"
+              href={config.site.github}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-md border border-border px-8 text-sm font-medium transition-colors hover:bg-accent"

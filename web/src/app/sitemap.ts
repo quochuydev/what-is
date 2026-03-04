@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
+import { config } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://example.com";
+  const baseUrl = config.site.url;
 
   const routes = [
     { path: "", changeFrequency: "daily" as const, priority: 1 },

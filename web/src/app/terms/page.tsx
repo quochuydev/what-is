@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { config } from "@/lib/config";
 
 export default function TermsPage() {
   return (
@@ -88,7 +89,7 @@ export default function TermsPage() {
               <h2 className="text-xl font-semibold">8. Contact</h2>
               <p className="mt-3 text-muted-foreground">
                 For questions about these Terms, please contact us at
-                quochuy.dev@gmail.com.
+                {config.site.email}.
               </p>
             </section>
           </div>

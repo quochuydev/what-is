@@ -1,27 +1,19 @@
 import type { Metadata } from "next";
+import { config } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description:
-    "Learn about VisionPipe3D and our mission to democratize hand tracking technology for the next generation of touchless interfaces.",
-  keywords: [
-    "about",
-    "team",
-    "company",
-    "VisionPipe3D team",
-    "gesture control company",
-  ],
+  description: `Learn about ${config.site.name} and our mission to provide AI-powered definition lookups for everyone.`,
+  keywords: ["about", "team", "company", `${config.site.name} team`],
   openGraph: {
-    title: "About Us | VisionPipe3D",
-    description:
-      "Learn about VisionPipe3D and our mission to democratize hand tracking technology.",
-    url: "https://visionpipe3d.quochuy.dev/about-us",
+    title: `About Us | ${config.site.name}`,
+    description: `Learn about ${config.site.name} and our mission to provide AI-powered definition lookups.`,
+    url: `${config.site.url}/about-us`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | VisionPipe3D",
-    description:
-      "Learn about VisionPipe3D and our mission to democratize hand tracking technology.",
+    title: `About Us | ${config.site.name}`,
+    description: `Learn about ${config.site.name} and our mission to provide AI-powered definition lookups.`,
   },
 };
 

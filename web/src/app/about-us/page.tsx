@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { config } from "@/lib/config";
 
 export default function AboutUsPage() {
   return (
@@ -55,8 +56,8 @@ export default function AboutUsPage() {
           <div className="mt-12">
             <h2 className="mb-6 text-2xl font-bold">Contact</h2>
             <div className="space-y-2 text-muted-foreground">
-              <p>Email: quochuy.dev@gmail.com</p>
-              <p>GitHub: github.com/example/what-is</p>
+              <p>Email: {config.site.email}</p>
+              <p>GitHub: {config.site.github.replace("https://", "")}</p>
             </div>
           </div>
         </section>

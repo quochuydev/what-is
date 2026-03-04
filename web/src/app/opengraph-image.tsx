@@ -1,8 +1,9 @@
 import { ImageResponse } from "next/og";
+import { config } from "@/lib/config";
 
 export const runtime = "edge";
 
-export const alt = "what-is - AI-Powered Definition Lookup";
+export const alt = `${config.site.name} - ${config.site.tagline}`;
 export const size = {
   width: 1200,
   height: 630,
@@ -41,7 +42,7 @@ export default async function Image() {
               marginBottom: 16,
             }}
           >
-            what-is
+            {config.site.name}
           </h1>
           <p
             style={{
@@ -51,7 +52,7 @@ export default async function Image() {
               marginBottom: 40,
             }}
           >
-            AI-Powered Definition Lookup
+            {config.site.tagline}
           </p>
           <div
             style={{

@@ -32,6 +32,18 @@ export const config = {
   app: {
     url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   },
+
+  // Site (brand/SEO — not env-dependent)
+  site: {
+    name: "what-is",
+    tagline: "AI-Powered Definition Lookup",
+    description:
+      "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate.",
+    url: "https://example.com",
+    github: "https://github.com/quochuydev/what-is",
+    email: "quochuy.dev@gmail.com",
+    analyticsId: "G-XXXXXXXXXX",
+  },
 } as const;
 
 // Validation helper - call this at startup to fail fast

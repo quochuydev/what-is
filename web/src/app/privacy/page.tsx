@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { config } from "@/lib/config";
 
 export default function PrivacyPage() {
   return (
@@ -77,7 +78,7 @@ export default function PrivacyPage() {
               <h2 className="text-xl font-semibold">7. Contact Us</h2>
               <p className="mt-3 text-muted-foreground">
                 If you have questions about this Privacy Policy, please contact
-                us at quochuy.dev@gmail.com.
+                us at {config.site.email}.
               </p>
             </section>
           </div>
