@@ -69,8 +69,8 @@ function BillingContent() {
       if (!res.ok) throw new Error("Failed to create checkout session");
 
       const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
+      if (data.approvalUrl) {
+        window.location.href = data.approvalUrl;
       }
     } catch {
       setError("Failed to start checkout");
