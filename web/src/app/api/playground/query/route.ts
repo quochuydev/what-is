@@ -4,6 +4,7 @@ import { db, users, creditTransactions } from "@/db";
 import { config } from "@/lib/config";
 import { eq, sql } from "drizzle-orm";
 import OpenAI from "openai";
+import { sendNotification } from "@/lib/firebase";
 
 // POST /api/playground/query - Get AI definition for a keyword
 export async function POST(request: NextRequest) {
@@ -101,6 +102,18 @@ export async function POST(request: NextRequest) {
       "[API /api/playground/query POST] Definition generated for:",
       trimmedKeyword
     );
+
+    // Send push notification if device token provided
+    const deviceToken = body.deviceToken;
+    if (deviceToken && typeof deviceToken === "string") {
+      sendNotification(
+        deviceToken,
+        `Definition: ${trimmedKeyword}`,
+        definition
+      ).catch((err) =>
+        console.error("[API /api/playground/query POST] Firebase error:", err)
+      );
+    }
 
     return NextResponse.json({
       keyword: trimmedKeyword,

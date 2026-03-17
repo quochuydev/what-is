@@ -17,6 +17,8 @@
     "@paypal/checkout-server-sdk": "^1.0.3",
     "@types/mdx": "^2.0.13",
     "drizzle-orm": "^0.45.1",
+    "firebase": "^12.10.0",
+    "firebase-admin": "^13.7.0",
     "fumadocs-core": "^16.4.6",
     "fumadocs-mdx": "^14.2.4",
     "fumadocs-ui": "^16.4.6",
