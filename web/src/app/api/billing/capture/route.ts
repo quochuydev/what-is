@@ -2,12 +2,20 @@ import { NextRequest, NextResponse } from "next/server";
 import { db, users, creditTransactions } from "@/db";
 import { requireUser } from "@/lib/auth";
 import { captureOrder } from "@/lib/paypal";
+import { config } from "@/lib/config";
 import { eq, sql } from "drizzle-orm";
 
 // POST /api/billing/capture - Capture a PayPal order after user approval
 export async function POST(request: NextRequest) {
   console.log("[API /api/billing/capture POST] Capturing PayPal order...");
   try {
+    if (!config.paypal.clientId || !config.paypal.clientSecret) {
+      return NextResponse.json(
+        { error: "Payments are not configured" },
+        { status: 503 }
+      );
+    }
+
     const user = await requireUser();
     console.log("[API /api/billing/capture POST] User:", user.id);
 

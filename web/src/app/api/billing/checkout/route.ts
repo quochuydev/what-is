@@ -1,11 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireUser } from "@/lib/auth";
 import { createOrder, getPackageById } from "@/lib/paypal";
+import { config } from "@/lib/config";
 
 // POST /api/billing/checkout - Create a PayPal order
 export async function POST(request: NextRequest) {
   console.log("[API /api/billing/checkout POST] Creating PayPal order...");
   try {
+    if (!config.paypal.clientId || !config.paypal.clientSecret) {
+      return NextResponse.json(
+        { error: "Payments are not configured" },
+        { status: 503 }
+      );
+    }
+
     const user = await requireUser();
     console.log("[API /api/billing/checkout POST] User:", user.id);
     const body = await request.json();

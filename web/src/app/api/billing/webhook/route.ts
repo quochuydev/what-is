@@ -8,6 +8,13 @@ import { eq, sql } from "drizzle-orm";
 export async function POST(request: NextRequest) {
   console.log("[Webhook] Received PayPal webhook");
 
+  if (!config.paypal.clientId || !config.paypal.clientSecret) {
+    return NextResponse.json(
+      { error: "Payments are not configured" },
+      { status: 503 }
+    );
+  }
+
   const body = await request.text();
 
   // Get PayPal signature headers

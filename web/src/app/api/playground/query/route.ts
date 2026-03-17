@@ -31,6 +31,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!config.llm.apiKey) {
+      return NextResponse.json(
+        { error: "AI service is not configured" },
+        { status: 503 }
+      );
+    }
+
     // Check user credits
     const currentUser = await db.query.users.findFirst({
       where: eq(users.id, user.id),

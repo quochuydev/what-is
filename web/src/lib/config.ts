@@ -17,14 +17,14 @@ export const config = {
   },
 
   paypal: {
-    clientId: process.env.PAYPAL_CLIENT_ID!,
-    clientSecret: process.env.PAYPAL_CLIENT_SECRET!,
+    clientId: process.env.PAYPAL_CLIENT_ID || "",
+    clientSecret: process.env.PAYPAL_CLIENT_SECRET || "",
     mode: (process.env.PAYPAL_MODE || "live") as "sandbox" | "live",
     webhookId: process.env.PAYPAL_WEBHOOK_ID,
   },
 
   llm: {
-    apiKey: process.env.LLM_API_KEY!,
+    apiKey: process.env.LLM_API_KEY || "",
     baseUrl: "https://api.deepseek.com/v1",
     model: "deepseek-chat",
   },
