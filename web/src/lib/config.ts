@@ -37,8 +37,10 @@ export const config = {
     name: "what-is",
     tagline: "AI-Powered Definition Lookup",
     description: "Get instant, AI-powered definitions for any keyword. Simple, fast, and accurate.",
+    url: "https://what-is.cappuai.com",
     github: "https://github.com/quochuydev/what-is",
     email: "quochuy.dev@gmail.com",
+    analyticsId: process.env.NEXT_PUBLIC_GA_ID || "",
   },
 
   firebase: {
