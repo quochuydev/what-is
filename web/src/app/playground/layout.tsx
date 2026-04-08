@@ -2,28 +2,28 @@ import type { Metadata } from "next";
 import { config } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Playground",
+  title: "GunPow Arena",
   description:
-    "Look up definitions for any keyword using AI. Get instant, accurate definitions powered by advanced language models.",
+    "Play GunPow Arena — a turn-based artillery battle game with chibi knights, destructible terrain, wind physics, and explosive fun!",
   keywords: [
-    "definition",
+    "gunpow",
+    "artillery game",
+    "turn-based",
+    "battle",
     "playground",
-    "AI definition",
-    "lookup",
-    "dictionary",
-    "what is",
+    "canvas game",
   ],
   openGraph: {
-    title: `Playground | ${config.site.name}`,
+    title: `GunPow Arena | ${config.site.name}`,
     description:
-      "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
+      "Turn-based artillery battle game with chibi knights, destructible terrain, and wind physics.",
     url: `${config.site.url}/playground`,
   },
   twitter: {
     card: "summary_large_image",
-    title: `Playground | ${config.site.name}`,
+    title: `GunPow Arena | ${config.site.name}`,
     description:
-      "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
+      "Turn-based artillery battle game with chibi knights, destructible terrain, and wind physics.",
   },
 };
 
