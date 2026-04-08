@@ -2,28 +2,28 @@ import type { Metadata } from "next";
 import { config } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Playground",
+  title: "2D Battle Arena",
   description:
-    "Look up definitions for any keyword using AI. Get instant, accurate definitions powered by advanced language models.",
+    "Play a 2D multiplayer fighting game — battle royale style. Fight locally against AI bots or connect via WebSocket for online multiplayer.",
   keywords: [
-    "definition",
+    "fighting game",
+    "2d game",
+    "battle arena",
+    "multiplayer",
     "playground",
-    "AI definition",
-    "lookup",
-    "dictionary",
-    "what is",
+    "browser game",
   ],
   openGraph: {
-    title: `Playground | ${config.site.name}`,
+    title: `2D Battle Arena | ${config.site.name}`,
     description:
-      "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
+      "Free-for-all 2D fighting game. Play locally or online via WebSocket.",
     url: `${config.site.url}/playground`,
   },
   twitter: {
     card: "summary_large_image",
-    title: `Playground | ${config.site.name}`,
+    title: `2D Battle Arena | ${config.site.name}`,
     description:
-      "Look up definitions for any keyword using AI. Get instant, accurate definitions.",
+      "Free-for-all 2D fighting game. Play locally or online via WebSocket.",
   },
 };
 

@@ -43,6 +43,12 @@ export const config = {
     analyticsId: process.env.NEXT_PUBLIC_GA_ID || "",
   },
 
+  nats: {
+    enabled: process.env.NATS_ENABLED === "true",
+    url: process.env.NATS_URL || "",
+    token: process.env.NATS_TOKEN || "",
+  },
+
   firebase: {
     projectId: process.env.FIREBASE_PROJECT_ID || "",
     clientEmail: process.env.FIREBASE_CLIENT_EMAIL || "",
