@@ -1,3 +1,13 @@
+import {
+  CheckoutPaymentIntent,
+  Client,
+  Environment,
+  OrderApplicationContextLandingPage,
+  OrderApplicationContextUserAction,
+  OrderRequest,
+  OrdersController,
+  OrderStatus,
+} from "@paypal/paypal-server-sdk";
 import { config } from "./config";
 
 // Credit packages available for purchase
@@ -13,30 +23,26 @@ export function getPackageById(id: string): CreditPackage | undefined {
   return CREDIT_PACKAGES.find((pkg) => pkg.id === id);
 }
 
-// PayPal API base URL
-function getPayPalBaseUrl(): string {
-  return config.paypal.mode === "sandbox"
-    ? "https://api-m.sandbox.paypal.com"
-    : "https://api-m.paypal.com";
+let cachedClient: Client | null = null;
+
+function getClient(): Client {
+  if (cachedClient) return cachedClient;
+  cachedClient = new Client({
+    clientCredentialsAuthCredentials: {
+      oAuthClientId: config.paypal.clientId,
+      oAuthClientSecret: config.paypal.clientSecret,
+    },
+    environment:
+      config.paypal.mode === "sandbox"
+        ? Environment.Sandbox
+        : Environment.Production,
+    timeout: 0,
+  });
+  return cachedClient;
 }
 
-// Get PayPal access token
-async function getAccessToken(): Promise<string> {
-  const auth = Buffer.from(
-    `${config.paypal.clientId}:${config.paypal.clientSecret}`
-  ).toString("base64");
-
-  const response = await fetch(`${getPayPalBaseUrl()}/v1/oauth2/token`, {
-    method: "POST",
-    headers: {
-      Authorization: `Basic ${auth}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: "grant_type=client_credentials",
-  });
-
-  const data = await response.json();
-  return data.access_token;
+function getOrdersController(): OrdersController {
+  return new OrdersController(getClient());
 }
 
 // Create PayPal order
@@ -44,45 +50,37 @@ export async function createOrder(
   pkg: CreditPackage,
   userId: string
 ): Promise<{ id: string; approvalUrl: string }> {
-  const accessToken = await getAccessToken();
-
-  const response = await fetch(`${getPayPalBaseUrl()}/v2/checkout/orders`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      intent: "CAPTURE",
-      purchase_units: [
-        {
-          amount: {
-            currency_code: pkg.currency,
-            value: pkg.price.toFixed(2),
-          },
-          description: `${pkg.credits} API Credits`,
-          custom_id: JSON.stringify({
-            userId,
-            packageId: pkg.id,
-            credits: pkg.credits,
-          }),
+  const orderRequest: OrderRequest = {
+    intent: CheckoutPaymentIntent.Capture,
+    purchaseUnits: [
+      {
+        amount: {
+          currencyCode: pkg.currency,
+          value: pkg.price.toFixed(2),
         },
-      ],
-      application_context: {
-        brand_name: config.site.name,
-        landing_page: "NO_PREFERENCE",
-        user_action: "PAY_NOW",
+        description: `${pkg.credits} API Credits`,
+        customId: JSON.stringify({
+          userId,
+          packageId: pkg.id,
+          credits: pkg.credits,
+        }),
       },
-    }),
+    ],
+    applicationContext: {
+      brandName: config.site.name,
+      landingPage: OrderApplicationContextLandingPage.NoPreference,
+      userAction: OrderApplicationContextUserAction.PayNow,
+    },
+  };
+
+  const { result } = await getOrdersController().createOrder({
+    body: orderRequest,
   });
 
-  const order = await response.json();
+  const approvalUrl =
+    result.links?.find((link) => link.rel === "approve")?.href ?? "";
 
-  const approvalUrl = order.links?.find(
-    (link: { rel: string; href: string }) => link.rel === "approve"
-  )?.href;
-
-  return { id: order.id, approvalUrl };
+  return { id: result.id ?? "", approvalUrl };
 }
 
 // Capture PayPal order (after user approves)
@@ -92,40 +90,36 @@ export async function captureOrder(orderId: string): Promise<{
   customData?: { userId: string; packageId: string; credits: number };
   error?: string;
 }> {
-  const accessToken = await getAccessToken();
+  try {
+    const { result } = await getOrdersController().captureOrder({
+      id: orderId,
+    });
 
-  const response = await fetch(
-    `${getPayPalBaseUrl()}/v2/checkout/orders/${orderId}/capture`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    }
-  );
+    if (result.status === OrderStatus.Completed) {
+      const capture = result.purchaseUnits?.[0]?.payments?.captures?.[0];
+      const customId = capture?.customId;
+      const paymentId = capture?.id;
 
-  const data = await response.json();
+      let customData;
+      try {
+        customData = customId ? JSON.parse(customId) : undefined;
+      } catch {
+        customData = undefined;
+      }
 
-  if (data.status === "COMPLETED") {
-    const customId =
-      data.purchase_units?.[0]?.payments?.captures?.[0]?.custom_id;
-    const paymentId = data.purchase_units?.[0]?.payments?.captures?.[0]?.id;
-
-    let customData;
-    try {
-      customData = customId ? JSON.parse(customId) : undefined;
-    } catch {
-      customData = undefined;
+      return { success: true, paymentId, customData };
     }
 
-    return { success: true, paymentId, customData };
+    return { success: false, error: "Payment capture failed" };
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Payment capture failed";
+    return { success: false, error: message };
   }
-
-  return { success: false, error: data.message || "Payment capture failed" };
 }
 
-// Verify webhook signature
+// Verify webhook signature (PayPal SDK does not expose a webhook controller,
+// so we call the REST endpoint directly using an access token from the SDK)
 export async function verifyWebhookSignature(
   webhookId: string,
   headers: {
@@ -137,10 +131,15 @@ export async function verifyWebhookSignature(
   },
   body: string
 ): Promise<boolean> {
-  const accessToken = await getAccessToken();
+  const { accessToken } = await getClient().clientCredentialsAuthManager.fetchToken();
+
+  const baseUrl =
+    config.paypal.mode === "sandbox"
+      ? "https://api-m.sandbox.paypal.com"
+      : "https://api-m.paypal.com";
 
   const response = await fetch(
-    `${getPayPalBaseUrl()}/v1/notifications/verify-webhook-signature`,
+    `${baseUrl}/v1/notifications/verify-webhook-signature`,
     {
       method: "POST",
       headers: {
